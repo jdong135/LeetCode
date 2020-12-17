@@ -24,3 +24,10 @@ def maxProduct(self, nums: List[int]) -> int:
 # current_min calculates the minimum possible product up to and including index i. So when i = 1, [2,3] has a minimum product of 3.
 # current_max calculates the maximum possible product up to and including index i. So when i = 2, [2,3,-2] has a max product of -2
 # because including 2 and 3 would make the product more negative.
+
+# If the array was instead, [2,3,-2,-4,-1]:
+# 2 3 -2  -4  -1
+# 2 6 -2  48   4
+# 2 3 -12 -4 -48
+# 2 6  6  48  48
+# Notice how current_max drops down to 4 at index 4. 
