@@ -1,0 +1,11 @@
+# Generate permutations of a list, each with length tuple_length
+
+def permutations(array, tuple_length, prev_array=[]):
+    if len(prev_array) == tuple_length:
+        return [prev_array]
+    combs = []
+    for i, val in enumerate(array):
+        prev_array_extended = prev_array.copy()
+        prev_array_extended.append(val)
+        combs += permutations(array[i+1:], tuple_length, prev_array_extended)
+    return combs
