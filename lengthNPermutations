@@ -3,9 +3,9 @@
 def permutations(array, tuple_length, prev_array=[]):
     if len(prev_array) == tuple_length:
         return [prev_array]
-    combs = []
+    perms = []
     for i, val in enumerate(array):
         prev_array_extended = prev_array.copy()
         prev_array_extended.append(val)
-        combs += permutations(array[i+1:], tuple_length, prev_array_extended)
-    return combs
+        perms += permutations(array[i+1:], tuple_length, prev_array_extended)
+    return perms
