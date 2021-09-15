@@ -1,0 +1,9 @@
+# f(x) = x^2 - 2
+# f'(x) = 2x
+# x' = x - f(x)/f'(x)
+def square_root(n, error):
+    while True:
+        root = n - (n**2-2)/(2*n)
+        if abs(root - n) < error:
+            return root
+        n = root
