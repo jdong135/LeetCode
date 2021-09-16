@@ -1,0 +1,16 @@
+arr = [2,4,2,5,1]
+s = 7
+# Size of smallest contiguous subarray with sum >= s
+def smallest_window(arr, s):
+    size = float('inf')
+    start = 0
+    cur = 0
+    for end, val in enumerate(arr):
+        cur += val
+        while cur >= s:
+            size = min(size, end - start + 1)
+            cur -= arr[start]
+            start += 1
+    return size
+
+print(smallest_window(arr, s))
