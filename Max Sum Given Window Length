@@ -1,0 +1,15 @@
+arr = [2,3,4,1,5]
+k = 3
+def maxWindow(arr, k):
+    start = 0
+    cur = 0
+    best = float('-inf')
+    for end, val in enumerate(arr):
+        cur += val
+        if end - start + 1 == k:
+            best = max(best, cur)
+            cur -= arr[start]
+            start += 1
+    return best
+
+print(maxWindow(arr, k))
