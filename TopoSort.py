@@ -41,5 +41,25 @@ eval_order = topoSort(graph)
 res = {}
 for var, exp in to_eval.items():
     value = 0
-    
+    cur_op = None
+    for e in exp:
+        if e.lstrip("-").isdigit():
+            number = int(e)
+            if cur_op == None:
+                value = number
+            elif cur_op == '+':
+                value += number
+            elif cur_op == '-':
+                value -= number
+        elif e in res:
+            number = res[e]
+            if cur_op == None:
+                value = number
+            elif cur_op == '+':
+                value += number
+            elif cur_op == '-':
+                value -= number
+        else:
+            cur_op = e
     res[var] = value
+print(res)
